@@ -37,8 +37,9 @@ const Topbar = ({ onOpen, ...rest }) => {
         display={{ base: 'flex', md: 'none' }}
         fontSize="2xl"
         fontFamily="monospace"
-        fontWeight="bold">
-        Logo
+        fontWeight="bold"
+      >
+        Miseru
       </Text>
       
       <HStack spacing={{ base: '0', md: '6' }}>

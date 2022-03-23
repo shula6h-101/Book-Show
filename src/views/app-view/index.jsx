@@ -10,7 +10,7 @@ export const AppViews = () => (
   <div>
     <Suspense fallback={<p> Loading...</p>}>
       <Routes>
-        <Route path="/home" exact element={<Home/>} />
+        <Route path="/home/*" exact element={<Home/>} />
         <Route path="/settings" exact element={<Settings/>} />
         <Route path='' element={<Navigate replace to={`${APP_PREFIX_PATH}/home`} />} />
       </Routes>
