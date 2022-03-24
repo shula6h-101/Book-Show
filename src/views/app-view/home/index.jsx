@@ -5,7 +5,7 @@ import {Box, useColorModeValue} from "@chakra-ui/react";
 
 const Movies = lazy(() => import('./Movies'));
 const SeatSelection = lazy(() => import('./SeatSelection'));
-const SeatBooking = lazy(() => import('./SeatBooking'));
+const TicketBooking = lazy(() => import('./TicketBooking'));
 
 const Home = () => {
   return (
@@ -19,9 +19,11 @@ const Home = () => {
     >
       <Suspense fallback={<p> Loading...</p>}>
         <Routes>
-          <Route path="/movies" exact element={<Movies/>} />
-          <Route path="/seat-selection" exact element={<SeatSelection/>} />
-          <Route path="/seat-booking" exact element={<SeatBooking/>} />
+          <Route path="/movies" element={<Movies/>} />
+          <Route path="/seat-selection" element={<SeatSelection/>}>
+            <Route path=":movieId" element={<SeatSelection/>}/>
+          </Route>
+          <Route path="/ticket-booking" element={<TicketBooking/>} />
           <Route path='' element={<Navigate replace to={`${APP_PREFIX_PATH}/home/movies`} />} />
         </Routes>
       </Suspense>

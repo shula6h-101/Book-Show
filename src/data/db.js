@@ -1,68 +1,97 @@
-const db = {
-  theatre: {
-    r1: {
-      price: 300,
-      seats: [
-        {id: "r1c1"},
-        {id: "r1c2"},
-        {id: "r1c3"},
-        {id: "r1c4"},
-        {id: "r1c5"},
-        {id: "r1c6"},
-        {id: "r1c7"},
-        {id: "r1c8"},
-        {id: "r1c9"},
-        {id: "r1c10"}
-      ]
-    },
-    r2: {
-      price: 300,
-      seats: [
-        {id: "r2c1"},
-        {id: "r2c2"},
-        {id: "r2c3"},
-        {id: "r2c4"},
-        {id: "r2c5"},
-        {id: "r2c6"},
-        {id: "r2c7"},
-        {id: "r2c8"},
-        {id: "r2c9"},
-        {id: "r2c10"}
-      ]
-    },
-    r3: {
-      price: 200,
-      seats: [
-        {id: "r3c1"},
-        {id: "r3c2"},
-        {id: "r3c3"},
-        {id: "r3c4"},
-        {id: "r3c5"},
-        {id: "r3c6"},
-        {id: "r3c7"},
-        {id: "r3c8"},
-        {id: "r3c9"},
-        {id: "r3c10"}
-      ]
+export const movies = [
+  {
+    imageUrl: '/img/knives_out.png',
+    id: 'knives_out',
+    genre: 'Mystery/Comedy',
+    runTime: '2h 10m',
+    title: 'Knives Out',
+    lang: 'English/Hindi',
+    reviewCount: 34,
+    rating: 4,
+  },
+  {
+    imageUrl: '/img/host.jpeg',
+    id: 'host',
+    genre: 'Horror/Mystery',
+    runTime: '1h 05m',
+    title: 'Host',
+    lang: 'English Only',
+    reviewCount: 23,
+    rating: 3,
+  },
+  {
+    imageUrl: '/img/avengers_end_game.png',
+    id: 'avengers_end_game',
+    genre: 'Action/Sci-fi',
+    runTime: '3h 02m',
+    title: 'Avengers End Game',
+    lang: 'English/Hindi',
+    reviewCount: 58,
+    rating: 5,
+  },
+  {
+    imageUrl: '/img/demon_slayer_mugen_train.jpeg',
+    id: 'demon_slayer_mugen_train',
+    genre: 'Action/Fantasy',
+    runTime: '1h 57m',
+    title: 'Demon Slayer: Mugen Train',
+    lang: 'Japanese/English',
+    reviewCount: 44,
+    rating: 4,
+  }
+]
 
-    },
-    r4: {
-      price: 200,
-      seats: [
-        {id: "r4c1"},
-        {id: "r4c2"},
-        {id: "r4c3"},
-        {id: "r4c4"},
-        {id: "r4c5"},
-        {id: "r4c6"},
-        {id: "r4c7"},
-        {id: "r4c8"},
-        {id: "r4c9"},
-        {id: "r4c10"}
-      ]
-
-    }
+export const seatMatrix = {
+  A:{
+    id: 'A',
+    price: 250,
+    seats: [
+      {id: 'A1', isOccupied: true, isDisabled: true},
+      {id: 'A2', isOccupied: false, isDisabled: false},
+      {id: 'A3', isOccupied: true, isDisabled: false},
+      {id: 'A4', isOccupied: false, isDisabled: false},
+      {id: 'A5', isOccupied: false, isDisabled: false},
+      {id: 'A6', isOccupied: false, isDisabled: false},
+      {id: 'A7', isOccupied: false, isDisabled: true}
+    ]
+  },
+  B:{
+    id: 'B',
+    price: 250,
+    seats: [
+      {id: 'B1', isOccupied: true, isDisabled: true},
+      {id: 'B2', isOccupied: false, isDisabled: false},
+      {id: 'B3', isOccupied: false, isDisabled: false},
+      {id: 'B4', isOccupied: false, isDisabled: false},
+      {id: 'B5', isOccupied: false, isDisabled: false},
+      {id: 'B6', isOccupied: false, isDisabled: false},
+      {id: 'B7', isOccupied: false, isDisabled: true}
+    ]
+  },
+  C:{
+    id: 'C',
+    price: 350,
+    seats: [
+      {id: 'C1', isOccupied: true, isDisabled: false},
+      {id: 'C2', isOccupied: false, isDisabled: false},
+      {id: 'C3', isOccupied: false, isDisabled: false},
+      {id: 'C4', isOccupied: false, isDisabled: false},
+      {id: 'C5', isOccupied: false, isDisabled: false},
+      {id: 'C6', isOccupied: false, isDisabled: false},
+      {id: 'C7', isOccupied: false, isDisabled: false}
+    ]
+  },
+  D:{
+    id: 'D',
+    price: 350,
+    seats: [
+      {id: 'D1', isOccupied: true, isDisabled: false},
+      {id: 'D2', isOccupied: false, isDisabled: false},
+      {id: 'D3', isOccupied: false, isDisabled: false},
+      {id: 'D4', isOccupied: false, isDisabled: false},
+      {id: 'D5', isOccupied: false, isDisabled: false},
+      {id: 'D6', isOccupied: false, isDisabled: false},
+      {id: 'D7', isOccupied: false, isDisabled: false},
+    ]
   }
 }
-
-export default db;

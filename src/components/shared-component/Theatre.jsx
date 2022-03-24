@@ -6,8 +6,8 @@ const Theatre = (props) => {
   const {seatMatrix, selectedSeats, handleSelectedSeat} = props;
   
   return (
-    <Flex direction={'column'} display={'inline-flex'} justifyContent={'center'}>
-      <Image src={'/img/screen-thumb.png'} alt={'screen'} mb={'4rem'} />
+    <Flex direction={'column'} display={'inline-flex'} justifyContent={'center'} my='3rem'>
+      <Image src={'/img/screen-thumb.png'} alt={'screen'} mb={'2rem'} />
   
       <SeatDescription/>
       {Object.keys(seatMatrix).map((row)=>(
@@ -24,6 +24,7 @@ const Theatre = (props) => {
               <Seat
                 key={seat.id}
                 {...seat}
+                price={seatMatrix[row].price}
                 isSelected={selectedSeats.includes(seat.id)}
                 handleSelectedSeat={handleSelectedSeat}/>
             ))}

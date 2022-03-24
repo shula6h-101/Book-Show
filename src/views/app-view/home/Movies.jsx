@@ -1,68 +1,34 @@
 import {Box, Icon, Image} from "@chakra-ui/react";
 import {BsStarFill} from "react-icons/bs";
+import {useNavigate} from 'react-router-dom';
+import {useAtom} from "jotai";
+import {ticketAtom} from "../../../atomic-state/Booking";
+import {APP_PREFIX_PATH} from "../../../constants/common";
+import {movies} from "../../../data/db";
 
 const Movies = () => {
-  const movies = [
-    {
-      imageUrl: '/img/knives_out.png',
-      name: 'knives_out',
-      genre: 'Mystery/Comedy',
-      runTime: '2h 10m',
-      title: 'Knives Out',
-      lang: 'English/Hindi',
-      reviewCount: 34,
-      rating: 4,
-    },
-    {
-      imageUrl: '/img/host.jpeg',
-      name: 'host',
-      genre: 'Horror/Mystery',
-      runTime: '1h 05m',
-      title: 'Host',
-      lang: 'English Only',
-      reviewCount: 23,
-      rating: 3,
-    },
-    {
-      imageUrl: '/img/avengers_end_game.png',
-      name: 'avengers_end_game',
-      genre: 'Action/Sci-fi',
-      runTime: '3h 02m',
-      title: 'Avengers End Game',
-      lang: 'English/Hindi',
-      reviewCount: 58,
-      rating: 5,
-    },
-    {
-      imageUrl: '/img/demon_slayer_mugen_train.jpeg',
-      name: 'demon_slayer_mugen_train',
-      genre: 'Action/Fantasy',
-      runTime: '1h 57m',
-      title: 'Demon Slayer: Mugen Train',
-      lang: 'Japanese/English',
-      reviewCount: 44,
-      rating: 4,
-    }
-  ]
+  const navigate = useNavigate();
+  const [, setTicket] = useAtom(ticketAtom)
   
   return (
     <div>
       <Box display={'inline-flex'} flexWrap={'wrap'}>
         {movies.map((movie)=>(
           <Box
-            key={movie.name}
+            key={movie.id}
             maxW={'2xs'}
             borderWidth='1px'
             m={'2'}
             borderRadius='lg'
             overflow='hidden'
-            onClick={()=>console.log(movie.name)}
-
+            onClick={() => {
+              setTicket({movie});
+              navigate(`${APP_PREFIX_PATH}/home/seat-selection/${movie.id}`)
+            }}
           >
-            <Image src={movie.imageUrl} alt={movie.name} h={'22.5rem'} objectFit={'cover'} />
+            <Image src={movie.imageUrl} alt={movie.id} h={'22.5rem'} objectFit={'cover'} />
       
-            <Box p='6'>
-              <Box display='flex' alignItems='baseline'>
+            <Box p='6' display={'inline-flex'} flexDirection={'column'}>
                 <Box
                   color='gray.500'
                   fontWeight='semibold'
@@ -73,7 +39,6 @@ const Movies = () => {
                 >
                   {movie.genre} &bull; {movie.runTime}
                 </Box>
-              </Box>
         
               <Box
                 mt='1'
@@ -89,7 +54,7 @@ const Movies = () => {
                 {movie.lang}
               </Box>
         
-              <Box display='flex' mt='2' alignItems='center'>
+              <Box display={'inline-flex'} justifyContent={'center'} mt='2' alignItems='center'>
                 {Array(5)
                   .fill('')
                   .map((_, i) => (

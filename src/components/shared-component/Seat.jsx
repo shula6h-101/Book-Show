@@ -1,7 +1,7 @@
 import {Button} from '@chakra-ui/react'
 
 const Seat = (props) => {
-  const {id, isOccupied, isDisabled, isSelected, handleSelectedSeat} = props;
+  const {id, isOccupied, isDisabled, isSelected, handleSelectedSeat, price} = props;
   return (
     <Button
       m={'3'}
@@ -11,8 +11,8 @@ const Seat = (props) => {
       borderBottomRadius={0}
       variant={isDisabled ? 'ghost' : 'solid'}
       borderRadius='full'
-      colorScheme={isOccupied ? 'blackAlpha' : isSelected ? 'whatsapp': 'gray'}
-      onClick={isOccupied ? null : () => handleSelectedSeat(id)}
+      colorScheme={isOccupied ? 'blackAlpha' : isSelected ? 'blue': 'gray'}
+      onClick={isOccupied ? null : () => handleSelectedSeat(id, price)}
     />
   )
 };
