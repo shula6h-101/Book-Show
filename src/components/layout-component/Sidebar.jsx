@@ -1,8 +1,7 @@
 import {Box, CloseButton, Flex, Icon, Link, Text, useColorModeValue} from "@chakra-ui/react";
 import NavLinks from "../../app-config/NavigationConfig";
-import React from "react";
 
-const Sidebar = ({ onClose, ...rest }) => {
+const Sidebar = ({ onClose, routeInfo, ...rest }) => {
   return (
     <Box
       transition="3s ease"
@@ -20,7 +19,7 @@ const Sidebar = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {NavLinks.map((link) => (
-        <NavItem key={link.name} icon={link.icon} path={link.path}>
+        <NavItem key={link.id} isSelected={link.id === routeInfo.id} icon={link.icon} path={link.path}>
           {link.name}
         </NavItem>
       ))}
@@ -28,21 +27,31 @@ const Sidebar = ({ onClose, ...rest }) => {
   );
 };
 
-const NavItem = ({ icon, children, path, ...rest }) => {
+const NavItem = ({ icon, children, path, isSelected, ...rest }) => {
   return (
-    <Link href={path} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+    <Link
+      href={path}
+      style={{ textDecoration: 'none' }}
+      _focus={{ boxShadow: 'none' }}
+    >
       <Flex
         align="center"
-        p="4"
+        p="2"
         mx="4"
+        my='2'
         borderRadius="lg"
         role="group"
         cursor="pointer"
+        __css={isSelected? {
+          bg: 'cyan.600',
+          color: 'white',
+        }: {}}
         _hover={{
           bg: 'cyan.400',
           color: 'white',
         }}
-        {...rest}>
+        {...rest}
+      >
         {icon && (
           <Icon
             mr="4"

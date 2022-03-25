@@ -22,7 +22,7 @@ const SeatSelection = () => {
   };
   
   useEffect(()=>{
-    getDetails()
+    getDetails();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
@@ -55,10 +55,6 @@ const SeatSelection = () => {
         selectedSeats={ticket.selectedSeats}
         handleSelectedSeat={handleSelectedSeat}
       />
-      {/*<Stat>*/}
-      {/*  <StatNumber>₹ {ticket.totalPrice}</StatNumber>*/}
-      {/*  <StatHelpText color='gray.600'>Selected Seats - {ticket.selectedSeats.length}</StatHelpText>*/}
-      {/*</Stat>*/}
       <Button
         px={4}
         w={'fit-content'}

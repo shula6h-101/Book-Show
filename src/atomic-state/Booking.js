@@ -1,7 +1,17 @@
 import {atom} from "jotai";
+import {RESET} from "jotai/utils";
 
-export const ticketAtom = atom({
+const initialValue = {
   movie: null,
   selectedSeats: [],
   totalPrice: 0
-}, (get, set, arg) => set(ticketAtom, {...get(ticketAtom), ...arg}))
+}
+
+export const ticketAtom = atom(initialValue, (get, set, arg) => {
+  if(arg === RESET){
+    set(ticketAtom, initialValue);
+  }
+  set(ticketAtom, {...get(ticketAtom), ...arg});
+})
+
+export const resetTicket = atom
