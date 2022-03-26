@@ -46,9 +46,9 @@ const TicketBooking = () => {
   const confirmBooking = () => {
     setTimeout(()=>{
       alert('Booking Successful!');
+      navigate(APP_PREFIX_PATH);
       setAllTickets(ticket);
       setTicket(RESET);
-      navigate(APP_PREFIX_PATH);
     },2000)
   }
   
