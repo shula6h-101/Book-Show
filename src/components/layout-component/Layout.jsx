@@ -23,7 +23,7 @@ export default function Layout({children}: { children: ReactNode}) {
         onOverlayClick={onClose}
         size="full">
         <DrawerContent>
-          <Sidebar onClose={onClose} />
+          <Sidebar onClose={onClose} routeInfo={Utils.getRouteInfo(navTree, window.location.pathname)} />
         </DrawerContent>
       </Drawer>
       <Topbar onOpen={onOpen} />
