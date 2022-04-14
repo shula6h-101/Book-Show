@@ -19,7 +19,7 @@ const Sidebar = ({ onClose, routeInfo, ...rest }) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {NavLinks.map((link) => (
-        <NavItem key={link.id} isSelected={link.id === routeInfo.id} icon={link.icon} path={link.path}>
+        <NavItem key={link.id} isSelected={link.id === routeInfo?.id} icon={link.icon} path={link.path}>
           {link.name}
         </NavItem>
       ))}
